@@ -6,29 +6,25 @@ initializeAuth();
 
 
 const useFirebase = () => {
- 
-  
+
     const [users,setuser] = useState({});
     const [error,seterror] = useState('');
-
-
     const[email,setemail] = useState('');
     const[password,setpassword] = useState('');
+
+
+    const [isLoading,setLoading] = useState(true);
 
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
     
-
-   
-
     const SignUpwithGoogle = ()=> {
+      setLoading(true)
       return signInWithPopup(auth, provider)
-      }
+ }
 
 
-
-   
     const hanglesignup = (e) => {
         e.preventDefault()
       
@@ -61,25 +57,29 @@ const useFirebase = () => {
       }
 
 
-
-
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
              setuser(user)
+            } 
+            else{
+              setuser({})
             }
+            setLoading(false)
           })
 
     }, [auth])
 
     const signouts = () => {
+      setLoading(true)
         signOut(auth)
         .then(() => {
            setuser({});
           })
           .catch((error) => {
             console.log(error);
-          });
+          })
+          .finally(() =>  setLoading(false));
     }
 
     return {
@@ -93,7 +93,9 @@ const useFirebase = () => {
         seterror,
         email,
         password,
-        SignUpwithGoogle
+        SignUpwithGoogle,
+        setLoading,
+        isLoading
     }
     
 };

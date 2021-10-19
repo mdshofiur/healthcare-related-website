@@ -14,7 +14,7 @@ Which technology I'm used for this asssignment: -
 * Firebase Authentication
 * Firebase Deploy
 
-I tried to create a good-looking project for the assignment. but don't know how look like it is. But,  I tried. I did not use one line of CSS. 
+I tried to create a good-looking project for the assignment. but don't know how look like it is. But,  I tried.
 
 
 

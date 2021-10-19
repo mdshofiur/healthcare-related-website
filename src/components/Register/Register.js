@@ -11,13 +11,14 @@ const Register = () => {
   const history = useHistory()
   const url = locations.state?.from || '/home';
 
-  const {SignUpwithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error} = useAuth();
+  const {SignUpwithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error,setLoading} = useAuth();
 
   const GoogleHandler = ()=>{
     SignUpwithGoogle()
    .then((result) => {
    history.push(url)
   })
+  .finally(() => setLoading(false));
 }
 
 
