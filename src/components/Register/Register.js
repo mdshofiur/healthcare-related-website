@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import initializeAuth from '../../Firebase/Firebaseinit';
 import {useLocation,useHistory} from 'react-router-dom'
+import useAuth from '../../Hook/useAuth';
 
 
 initializeAuth();
@@ -10,6 +11,9 @@ const Register = () => {
   const locations = useLocation();
   const history = useHistory()
   const url = locations.state?.from || '/home';
+
+
+  const {signinWithGoogle} = useAuth();
 
     const[email,setemail] = useState('');
     const[password,setpassword] = useState('');
@@ -63,7 +67,7 @@ const Register = () => {
         })
         .catch((error) => {
           const errorMessage = error.message;
-          console.log(errorMessage);
+          seterror("Password is incorrect")
         });
       }
 
@@ -86,8 +90,12 @@ const Register = () => {
        <label className="form-check-label" htmlFor="exampleCheck1">Already Register in?</label>
        </div>
        <button type="submit" className="btn btn-primary mt-3">{islogin ? "Log in":"Sign Up"}</button>
+       <span className="ms-5">or</span>
+       <button onClick={signinWithGoogle} className="btn btn-primary mt-3 ms-5">Log In with Gooogle</button>
        </form>
+      
         </div>
+        
     );
 };
 

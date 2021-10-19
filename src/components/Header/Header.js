@@ -17,7 +17,9 @@ const Header = () => {
       <NavLink to="/service" className="text-light p-3 text-decoration-none">Services</NavLink>
       <NavLink to="/register" className="text-light p-3 text-decoration-none">Register</NavLink>
       <NavLink to="/log" className="text-light p-3 text-decoration-none">log In</NavLink>
-      {users?.email && <button className="btn fw-bold text-light"onClick={signouts}>log Out</button>}
+      <NavLink to="" className="text-light p-3 text-decoration-none">{users.displayName} </NavLink>
+      <NavLink to=""className="text-light p-3">
+       {users?.email && <button className="border-0 bg-info text-danger fw-bold" onClick={signouts}>log Out</button>}</NavLink>
     </Nav>
     </Container>
      </Navbar>
