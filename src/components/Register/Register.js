@@ -67,7 +67,7 @@ const Register = () => {
         })
         .catch((error) => {
           const errorMessage = error.message;
-          seterror("Password is incorrect")
+          seterror("Pasword or Email is wrong")
         });
       }
 

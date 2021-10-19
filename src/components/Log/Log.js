@@ -7,11 +7,14 @@ import { getAuth,signInWithEmailAndPassword,onAuthStateChanged } from "firebase/
 const Log = () => {
      
    const {signinWithGoogle} = useAuth();
-   const history = useHistory()
+
    const locations = useLocation();
+   const history = useHistory()
    const url = locations.state?.from || '/home';
+
    const[email,setemail] = useState('');
-    const[password,setpassword] = useState('');
+   const[password,setpassword] = useState('');
+   const[error,seterror] = useState('');
 
     const auth = getAuth();
     useEffect(() => {
@@ -33,6 +36,7 @@ const Log = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        seterror("Pasword or Email is wrong")
       });
     }
 
@@ -56,6 +60,7 @@ const Log = () => {
         <div className="form-group">
         <label htmlFor="exampleInputPassword1">Password</label>
         <input onBlur={hanglePasswordChange} type="password" className="form-control" id="exampleInputPassword1"/>
+        <p className="text-danger">{error}</p>
        </div>
        <div className="form-group form-check">
        </div>

@@ -1,4 +1,6 @@
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import About from "./components/About/About";
+import Blog from "./components/Blog/Blog";
 import Error404 from "./components/Error404/Error404";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -13,7 +15,6 @@ import AuthProvider from "./Context/AuthProvider";
 
 function App() {
 
- 
 
   return (
     <div className="App">
@@ -30,16 +31,22 @@ function App() {
               <Route exact path="/service/">
                <Service></Service>
               </Route>
+              <Route path="/blog">
+               <Blog></Blog>
+              </Route>
+              <Route path="/about">
+               <About></About>
+              </Route>
               <Route exact path="/register/">
                <Register></Register>
               </Route>
               <Route exact path="/log/">
                <Log></Log>
               </Route>
-              <Route path="/">
+              <Route exact path="/">
                <Home></Home>
               </Route>
-              <Route path="*">
+              <Route exact path="*">
                 <Error404></Error404>
               </Route>
             </Switch>
