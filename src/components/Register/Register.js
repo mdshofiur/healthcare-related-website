@@ -2,12 +2,24 @@ import React from 'react';
 import { useState } from 'react';
 import initializeAuth from '../../Firebase/Firebaseinit';
 import useAuth from '../../Hook/useAuth';
+import {useLocation,useHistory} from 'react-router-dom'
 
 initializeAuth();
 const Register = () => {
 
+  const locations = useLocation();
+  const history = useHistory()
+  const url = locations.state?.from || '/home';
 
-  const {signinWithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error} = useAuth();
+  const {SignUpwithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error} = useAuth();
+
+  const GoogleHandler = ()=>{
+    SignUpwithGoogle()
+   .then((result) => {
+   history.push(url)
+  })
+}
+
 
     const[islogin,setislogin] = useState(false);
 
@@ -44,7 +56,7 @@ const Register = () => {
        </div>
        <button type="submit" className="btn btn-primary mt-3">{islogin ? "Log in":"Sign Up"}</button>
        <span className="ms-5">or</span>
-       <button onClick={signinWithGoogle} className="btn btn-primary mt-3 ms-5">Log In with Google</button>
+       <button onClick={GoogleHandler} className="btn btn-primary mt-3 ms-5">Log In with Google</button>
        </form>
       
         </div>

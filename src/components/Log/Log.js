@@ -1,29 +1,23 @@
 import React from 'react';
 import useAuth from '../../Hook/useAuth';
-import { useEffect } from 'react';
 import {useLocation,useHistory} from 'react-router-dom'
-import { getAuth,onAuthStateChanged } from "firebase/auth";
 
 const Log = () => {
      
 
-   const {signinWithGoogle,setemail,setpassword,hanglelogin,error} = useAuth();
+   const {SignUpwithGoogle,setemail,setpassword,hanglelogin,error} = useAuth();
 
    const locations = useLocation();
    const history = useHistory()
    const url = locations.state?.from || '/home';
   
 
-    const auth = getAuth();
-    useEffect(() => {
-      onAuthStateChanged(auth, user => {
-          if (user) {
-            history.push(url)
-          }
-        })
-
-  }, [auth,url]);
-
+   const GoogleHandler = ()=>{
+    SignUpwithGoogle()
+   .then((result) => {
+   history.push(url)
+  })
+}
 
     const hangleEmailChange = (e)=> {
       setemail(e.target.value)
@@ -52,7 +46,7 @@ const Log = () => {
        <button type="submit" className="btn btn-primary">Log In</button>
          <div className="ms-3 p-2">Or</div>
        </form>
-       <button onClick={signinWithGoogle} className="btn btn-primary">Log In with Google</button>
+       <button onClick={GoogleHandler} className="btn btn-primary">Log In with Google</button>
         </div>
     );
 };

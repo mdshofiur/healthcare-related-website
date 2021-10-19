@@ -20,18 +20,13 @@ const useFirebase = () => {
 
     
 
-    const signinWithGoogle = () => {
-    signInWithPopup(auth, provider)
-    .then((result) => {
-     const user = result.user;
-     setuser(user);
-     
-    })
-     .catch((error) => {
-        seterror(error)
-     })
+   
 
-    }
+    const SignUpwithGoogle = ()=> {
+      return signInWithPopup(auth, provider)
+      }
+
+
 
    
     const hanglesignup = (e) => {
@@ -80,7 +75,6 @@ const useFirebase = () => {
     const signouts = () => {
         signOut(auth)
         .then(() => {
-           console.log("Sign-out successful");
            setuser({});
           })
           .catch((error) => {
@@ -91,7 +85,6 @@ const useFirebase = () => {
     return {
         users,
         error,
-        signinWithGoogle,
         signouts,
         setemail,
         setpassword,
@@ -100,6 +93,7 @@ const useFirebase = () => {
         seterror,
         email,
         password,
+        SignUpwithGoogle
     }
     
 };

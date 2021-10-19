@@ -3,7 +3,7 @@ Website Name: PsychCenter.com
 
 Github Private Rep Link: https://github.com/Programming-Hero-Web-Course3/healthcare-related-website-mdshofiur
 
-Netlify Live Link: https://assignment-10-4bb91.web.app/
+Firebase Live Link: https://assignment-10-4bb91.web.app/
 
 Which technology I'm used for this asssignment: -
 
