@@ -5,7 +5,7 @@ const Blog = () => {
     return (
         <div className="text-center">
 
-              <div className="bg-primary p-5 text-light">
+              <div className="bg-info p-5 text-light">
                   <h2>Blog</h2>
               </div>
 

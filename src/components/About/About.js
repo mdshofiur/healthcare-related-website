@@ -6,7 +6,7 @@ import { AiTwotoneLike } from "react-icons/ai";
 const About = () => {
     return (
         <div className="text-center">
-              <div className="bg-primary p-5 text-light">
+              <div className="bg-info p-5 text-light">
                   <h2>About</h2>
               </div>
 
