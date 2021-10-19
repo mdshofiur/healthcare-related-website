@@ -1,14 +1,19 @@
 import {useEffect, useState} from 'react'
 import initializeAuth from '../Firebase/Firebaseinit';
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut   } from "firebase/auth";
-
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
 
 
 initializeAuth();
 
 const useFirebase = () => {
+
+
+
     const [users,setuser] = useState({});
     const [error,seterror] = useState('');
+
+    const[email,setemail] = useState('');
+    const[password,setpassword] = useState('');
 
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
@@ -24,6 +29,43 @@ const useFirebase = () => {
      })
 
     }
+
+   
+    const hanglesignup = (e) => {
+        e.preventDefault()
+      
+        if(password.length < 6){
+          seterror("Pass Must be 6")
+          return;
+        }
+      
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((result) => {
+          seterror('')
+          setuser(result.user)
+          console.log(users);
+        })
+        .catch(() => {
+         seterror('Email Already Used')
+        });
+        
+      }
+
+      const hanglelogin = (e) => {
+        e.preventDefault()
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+
+        })
+        .catch((error) => {
+          seterror("Pasword or Email is wrong")
+        });
+      }
+
+
+
 
     useEffect(() => {
         onAuthStateChanged(auth, user => {
@@ -49,7 +91,14 @@ const useFirebase = () => {
         users,
         error,
         signinWithGoogle,
-        signouts
+        signouts,
+        setemail,
+        setpassword,
+        hanglesignup,
+        hanglelogin,
+        seterror,
+        email,
+        password
     }
     
 };

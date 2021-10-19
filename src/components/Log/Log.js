@@ -1,20 +1,18 @@
 import React from 'react';
 import useAuth from '../../Hook/useAuth';
-import { useState,useEffect } from 'react';
+import { useEffect } from 'react';
 import {useLocation,useHistory} from 'react-router-dom'
-import { getAuth,signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
+import { getAuth,onAuthStateChanged } from "firebase/auth";
 
 const Log = () => {
      
-   const {signinWithGoogle} = useAuth();
+
+   const {signinWithGoogle,setemail,setpassword,hanglelogin,error} = useAuth();
 
    const locations = useLocation();
    const history = useHistory()
    const url = locations.state?.from || '/home';
 
-   const[email,setemail] = useState('');
-   const[password,setpassword] = useState('');
-   const[error,seterror] = useState('');
 
     const auth = getAuth();
     useEffect(() => {
@@ -24,21 +22,8 @@ const Log = () => {
           }
         })
 
-  }, [auth])
+  }, [auth,url,history])
 
-
-    const hanglelogin = (e) => {
-      e.preventDefault()
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        history.push(url)
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        seterror("Pasword or Email is wrong")
-      });
-    }
 
     const hangleEmailChange = (e)=> {
       setemail(e.target.value)

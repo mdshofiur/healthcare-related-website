@@ -37,11 +37,11 @@ const Header = () => {
         <NavLink className="nav-link fw-bold" to="/log">Log In</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link fw-bold" to="">{users.displayName}</NavLink>
+        <NavLink className="nav-link fw-bold" to="">{users.displayName || users.email}</NavLink>
       </li>
        <li>
        <NavLink to=""className="p-3">
-       {users?.displayName && <button className="mt-2 text-danger border-0 fw-bold master" onClick={signouts}>Log Out</button>}</NavLink>
+       {users?.email && <button className="mt-2 text-danger border-0 fw-bold master" onClick={signouts}>Log Out</button>}</NavLink>
        </li>
     </ul>
 

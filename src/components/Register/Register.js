@@ -1,25 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 import initializeAuth from '../../Firebase/Firebaseinit';
-import {useLocation,useHistory} from 'react-router-dom'
 import useAuth from '../../Hook/useAuth';
 
 
 initializeAuth();
 const Register = () => {
-  const locations = useLocation();
-  const history = useHistory()
-  const url = locations.state?.from || '/home';
 
+  const {signinWithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error} = useAuth();
 
-  const {signinWithGoogle} = useAuth();
-
-    const[email,setemail] = useState('');
-    const[password,setpassword] = useState('');
     const[islogin,setislogin] = useState(false);
-    const[error,seterror] = useState('');
-
     const hangleEmailChange = (e)=> {
         setemail(e.target.value)
          
@@ -33,42 +23,6 @@ const Register = () => {
       }
       
      
-      const hanglesignup = (e) => {
-        e.preventDefault()
-      
-        if(password.length < 6){
-          seterror("Pass Must be 6")
-          return;
-        }
-      
-        if(!/(?=.*[A-Z].*[A-Z])/.test(password)){
-              seterror("Set minimum One Uppercase");
-              return;
-        }
-      
-        const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-          seterror('')
-          history.push(url)
-        })
-        .catch(() => {
-         seterror('Email Already Used')
-        });
-        
-      }
-
-      const hanglelogin = (e) => {
-        e.preventDefault()
-      const auth = getAuth();
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          history.push(url)
-        })
-        .catch((error) => {
-          seterror("Pasword or Email is wrong")
-        });
-      }
 
     return (
         <div className="container mt-5 mb-5">
@@ -96,6 +50,7 @@ const Register = () => {
         </div>
         
     );
+
 };
 
 export default Register;
