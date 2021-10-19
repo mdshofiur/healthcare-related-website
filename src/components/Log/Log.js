@@ -12,7 +12,7 @@ const Log = () => {
    const locations = useLocation();
    const history = useHistory()
    const url = locations.state?.from || '/home';
-
+  
 
     const auth = getAuth();
     useEffect(() => {
@@ -22,7 +22,7 @@ const Log = () => {
           }
         })
 
-  }, [auth,url,history])
+  }, [auth,url]);
 
 
     const hangleEmailChange = (e)=> {

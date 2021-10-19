@@ -3,16 +3,16 @@ import { useState } from 'react';
 import initializeAuth from '../../Firebase/Firebaseinit';
 import useAuth from '../../Hook/useAuth';
 
-
 initializeAuth();
 const Register = () => {
+
 
   const {signinWithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error} = useAuth();
 
     const[islogin,setislogin] = useState(false);
+
     const hangleEmailChange = (e)=> {
         setemail(e.target.value)
-         
       }
       const hanglePasswordChange = (e)=> {
         setpassword(e.target.value)

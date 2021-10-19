@@ -2,15 +2,15 @@ import {useEffect, useState} from 'react'
 import initializeAuth from '../Firebase/Firebaseinit';
 import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,signOut,createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
 
-
 initializeAuth();
 
+
 const useFirebase = () => {
-
-
-
+ 
+  
     const [users,setuser] = useState({});
     const [error,seterror] = useState('');
+
 
     const[email,setemail] = useState('');
     const[password,setpassword] = useState('');
@@ -18,11 +18,14 @@ const useFirebase = () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
+    
+
     const signinWithGoogle = () => {
     signInWithPopup(auth, provider)
     .then((result) => {
      const user = result.user;
      setuser(user);
+     
     })
      .catch((error) => {
         seterror(error)
@@ -44,7 +47,6 @@ const useFirebase = () => {
         .then((result) => {
           seterror('')
           setuser(result.user)
-          console.log(users);
         })
         .catch(() => {
          seterror('Email Already Used')
@@ -57,7 +59,6 @@ const useFirebase = () => {
       const auth = getAuth();
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-
         })
         .catch((error) => {
           seterror("Pasword or Email is wrong")
@@ -98,7 +99,7 @@ const useFirebase = () => {
         hanglelogin,
         seterror,
         email,
-        password
+        password,
     }
     
 };
