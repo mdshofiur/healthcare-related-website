@@ -49,8 +49,8 @@ const Register = () => {
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((result) => {
-          const user = result.user;
           seterror('')
+          history.push(url)
         })
         .catch(() => {
          seterror('Email Already Used')
@@ -66,7 +66,6 @@ const Register = () => {
           history.push(url)
         })
         .catch((error) => {
-          const errorMessage = error.message;
           seterror("Pasword or Email is wrong")
         });
       }
@@ -91,7 +90,7 @@ const Register = () => {
        </div>
        <button type="submit" className="btn btn-primary mt-3">{islogin ? "Log in":"Sign Up"}</button>
        <span className="ms-5">or</span>
-       <button onClick={signinWithGoogle} className="btn btn-primary mt-3 ms-5">Log In with Gooogle</button>
+       <button onClick={signinWithGoogle} className="btn btn-primary mt-3 ms-5">Log In with Google</button>
        </form>
       
         </div>

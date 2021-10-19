@@ -18,7 +18,6 @@ const useFirebase = () => {
     .then((result) => {
      const user = result.user;
      setuser(user);
-     console.log(user);
     })
      .catch((error) => {
         seterror(error)

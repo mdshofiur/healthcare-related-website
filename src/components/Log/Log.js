@@ -67,7 +67,7 @@ const Log = () => {
        <button type="submit" className="btn btn-primary">Log In</button>
          <div className="ms-3 p-2">Or</div>
        </form>
-       <button onClick={signinWithGoogle} className="btn btn-primary">Log In with Gooogle</button>
+       <button onClick={signinWithGoogle} className="btn btn-primary">Log In with Google</button>
         </div>
     );
 };

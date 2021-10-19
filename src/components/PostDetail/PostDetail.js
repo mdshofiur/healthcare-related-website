@@ -15,8 +15,6 @@ const PostDetail = () => {
         })
     },[id,detail])
 
-    console.log(detail);
-
 
     return (
         <div className="">
