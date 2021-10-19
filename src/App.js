@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import Error404 from "./components/Error404/Error404";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import Log from "./components/Log/Log";
+import PostDetail from "./components/PostDetail/PostDetail";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Register from "./components/Register/Register";
+import Service from "./components/Services/Service";
+import AuthProvider from "./Context/AuthProvider";
+
 
 function App() {
+
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <AuthProvider>
+          <Router>
+          <Header></Header>
+            <Switch>
+              <Route path="/home">
+               <Home></Home>
+              </Route>
+              <PrivateRoute path="/service/:id">
+               <PostDetail></PostDetail>
+              </PrivateRoute>
+              <Route exact path="/service/">
+               <Service></Service>
+              </Route>
+              <Route exact path="/register/">
+               <Register></Register>
+              </Route>
+              <Route exact path="/log/">
+               <Log></Log>
+              </Route>
+              <Route path="/">
+               <Home></Home>
+              </Route>
+              <Route path="*">
+                <Error404></Error404>
+              </Route>
+            </Switch>
+            <Footer></Footer>
+          </Router>
+          </AuthProvider>
     </div>
   );
 }

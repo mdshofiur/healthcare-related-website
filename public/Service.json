@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id":1,
+      "title": "Depression",
+      "desc": "Explore information about depression (also known as depressive disorder or clinical depression), including signs and symptoms, treatment, research and",
+      "img": "https://i.ibb.co/b3GSVLs/6.jpg"
+    },
+    {
+      "id":2,
+      "title": "Medication Management",
+      "desc": "Medication management is a level of outpatient treatment that involves the initial evaluation of the patient's need for psychotropic medications.",
+      "img": "https://i.ibb.co/37BLRgf/5.jpg"
+    },
+    {
+      "id":3,
+      "title": "Insomnia",
+      "desc": "Insomnia is a common sleep disorder that can make it hard to fall asleep, hard to stay asleep, or cause you to wake up too early and not be able to get back to sleep.",
+      "img": "https://i.ibb.co/YyWZ77T/4.jpg"
+    },
+    {
+      "id":4,
+      "title": "ADHD",
+      "desc": "Attention deficit hyperactivity disorder (ADHD) is a brain disorder that affects how you pay attention, sit still, and control your behavior. It happens in children",
+      "img": "https://i.ibb.co/1fZzPDT/3.jpg"
+    },
+    {
+      "id":5,
+      "title": "PTSD",
+      "desc": "Posttraumatic stress disorder (PTSD) is a psychiatric disorder that may occur in people who have experienced or witnessed a traumatic event such as a natural disaster.",
+      "img": "https://i.ibb.co/KK8pP3j/2.jpg"
+    },
+    {
+      "id":6,
+      "title": "Anxiety & Panic Attacks",
+      "desc": "Panic disorder involves repeated episodes of sudden feelings of intense anxiety and fear or terror that reach a peak within minutes (panic attacks).",
+      "img": "https://i.ibb.co/gJrfHpm/1.jpg"
+    }
+  ]
+}

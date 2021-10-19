@@ -1,0 +1,41 @@
+{
+  "service": [
+    
+      {
+        "id": "1",
+        "title": "What Is Depression?",
+        "img": "https://www.statnews.com/wp-content/uploads/2016/02/Depression_APStock72622943-768x432.jpg",
+        "desc": "Depression affects an estimated one in 15 adults (6.7%) in any given year. And one in six people (16.6%) will experience depression at some time in their life. Depression can occur at any time, but on average, first appears during the late teens to mid-20s. Women are more likely than men to experience depression. Some studies show that one-third of women will experience a major depressive episode in their lifetime. There is a high degree of heritability (approximately 40%) when first-degree relatives (parents/children/siblings) have depression."
+      },
+      {
+        "id": "2",
+        "title": "8 Tips for the Medication Management Process",
+        "img": "https://cdn2.hubspot.net/hubfs/4184981/images/blog/medication%20management%20process.png",
+        "desc": "A number of quality and safety organizations support pharmacists as the key professional to manage medication therapy and reconciliation for patients. A few examples are the Agency for Healthcare Research and Quality (AHRQ), Institute for Healthcare Improvement (IHI), and the American Society of Health-System Pharmacists (ASHP).Putting a pharmacist in charge of a medication management initiative can ensure that policies and procedures follow best practice guidelines.Their training makes them uniquely qualified to provide in-depth, medication-related education, consultation, and advice to patients, family and/or caregivers. When integrated into the care team through the medication management process, pharmacists collaborate with the patient, physician, and other providers to develop and achieve optimal goals of medication therapy."
+      },
+      {
+        "id": "3",
+        "title": "Insomnia - Symptoms and causes - Mayo Clinic",
+        "img": "https://ichef.bbci.co.uk/news/976/cpsprodpb/D4E0/production/_104369445_0b19b561-f45c-479e-bb41-501094d14f19.jpg",
+        "desc": "Insomnia is a common sleep disorder that can make it hard to fall asleep, hard to stay asleep, or cause you to wake up too early and not be able to get back to sleep. You may still feel tired when you wake up. Insomnia can sap not only your energy level and mood but also your health, work performance and quality of life. How much sleep is enough varies from person to person, but most adults need seven to eight hours a night."
+      },
+      {
+        "id": "4",
+        "title": "What is ADHD?",
+        "img": "https://i.ibb.co/yWKmwLT/slide-2.jpg",
+        "desc": "Predominantly Hyperactive-Impulsive Presentation: The person fidgets and talks a lot. It is hard to sit still for long (e.g., for a meal or while doing homework). Smaller children may run, jump or climb constantly. The individual feels restless and has trouble with impulsivity. Someone who is impulsive may interrupt others a lot, grab things from people, or speak at inappropriate times. It is hard for the person to wait their turn or listen to directions. A person with impulsiveness may have more accidents and injuries than others."
+      },
+      {
+        "id": "5",
+        "title": "What Is Posttraumatic Stress Disorder?",
+        "img": "https://i.ibb.co/kJmy9dy/PTSD-blog.jpg",
+        "desc": "Posttraumatic stress disorder (PTSD) is a psychiatric disorder that may occur in people who have experienced or witnessed a traumatic event such as a natural disaster, a serious accident, a terrorist act, war/combat, or rape or who have been threatened with death, sexual violence or serious injury. PTSD has been known by many names in the past, such as “shell shock” during the years of World War I and “combat fatigue” after World War II, but PTSD does not just happen to combat veterans. PTSD can occur in all people, of any ethnicity, nationality or culture, and at any age. PTSD affects approximately 3.5 percent of U.S. adults every year, and an estimated one in 11 people will be diagnosed with PTSD in their lifetime. Women are twice as likely as men to have PTSD. Three ethnic groups – U.S. Latinos, African Americans, and American Indians – are disproportionately affected and have higher rates of PTSD than non-Latino whites"
+      },
+      {
+        "id": "6",
+        "title": "What’s the Difference Between a Panic Attack and an Anxiety Attack?",
+        "img": "https://vertavahealth.com/wp-content/uploads/2021/08/WhenAnxietyAttacks-2.png",
+        "desc": "You might hear people talking about panic attacks and anxiety attacks like they’re the same thing. They’re different conditions though.Panic attacks come on suddenly and involve intense and often overwhelming fear. They’re accompanied by frightening physical symptoms, such as a racing heartbeat, shortness of breath, or nausea.The latest edition of the Diagnostic and Statistical Manual of Mental Disorders (DSM-5) recognizes panic attacks, and categorizes them as unexpected or expected."
+      }
+    ]
+}
