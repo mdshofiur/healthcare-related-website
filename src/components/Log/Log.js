@@ -17,6 +17,7 @@ const Log = () => {
     useEffect(() => {
       onAuthStateChanged(auth, user => {
           if (user) {
+            history.push(url)
           }
         })
 
