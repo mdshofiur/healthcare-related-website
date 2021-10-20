@@ -4,6 +4,7 @@ import initializeAuth from '../../Firebase/Firebaseinit';
 import useAuth from '../../Hook/useAuth';
 import {useLocation,useHistory} from 'react-router-dom'
 
+
 initializeAuth();
 const Register = () => {
 
@@ -11,7 +12,35 @@ const Register = () => {
   const history = useHistory()
   const url = locations.state?.from || '/home';
 
-  const {SignUpwithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error,setLoading} = useAuth();
+  const {SignUpwithGoogle,setemail,setpassword,hanglesignup,hanglelogin,error,setLoading,setuser,seterror} = useAuth();
+
+
+    const GoogleSignUp = (e)=>{
+       e.preventDefault()
+      hanglesignup()
+      .then((result) => {
+        seterror('')
+        setuser(result.user)
+        history.push(url)
+      })
+      .catch(() => {
+       seterror('Email Already Used')
+      });
+    }
+
+
+    const loginFunc = (e)=> {
+      e.preventDefault()
+      hanglelogin()
+      .then((result) => {
+        setuser(result.user)
+         history.push(url)
+      })
+      .catch((error) => {
+        seterror("Pasword or Email is wrong")
+      });
+    }
+
 
   const GoogleHandler = ()=>{
     SignUpwithGoogle()
@@ -20,7 +49,6 @@ const Register = () => {
   })
   .finally(() => setLoading(false));
 }
-
 
     const[islogin,setislogin] = useState(false);
 
@@ -39,7 +67,7 @@ const Register = () => {
 
     return (
         <div className="container mt-5 mb-5">
-        <form onSubmit={islogin?hanglelogin:hanglesignup}>
+        <form onSubmit={islogin?loginFunc:GoogleSignUp}>
         <h3>{islogin ? "Log in":"Sign Up"}</h3>
         <div className="form-group">
         <label htmlFor="exampleInputEmail1">Email address</label>

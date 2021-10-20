@@ -5,7 +5,7 @@ import {useLocation,useHistory} from 'react-router-dom'
 const Log = () => {
      
 
-   const {SignUpwithGoogle,setemail,setpassword,hanglelogin,error} = useAuth();
+   const {SignUpwithGoogle,setemail,setpassword,hanglelogin,error,seterror,setuser} = useAuth();
 
    const locations = useLocation();
    const history = useHistory()
@@ -15,9 +15,9 @@ const Log = () => {
    const GoogleHandler = ()=>{
     SignUpwithGoogle()
    .then((result) => {
-   history.push(url)
+      history.push(url)
   })
-}
+  }
 
     const hangleEmailChange = (e)=> {
       setemail(e.target.value)
@@ -27,10 +27,25 @@ const Log = () => {
       setpassword(e.target.value)
     }
 
+
+    const loginFunc = (e)=> {
+      e.preventDefault()
+      hanglelogin()
+      .then((result) => {
+        setuser(result.user)
+         history.push(url)
+      })
+      .catch((error) => {
+        seterror("Pasword or Email is wrong")
+      });
+    }
+
+
+
     
     return (
         <div className="container mt-5 mb-5">
-           <form onSubmit={hanglelogin}>
+           <form onSubmit={loginFunc}>
         <div className="form-group">
         <label htmlFor="exampleInputEmail1">Email address</label>
         <input onChange={hangleEmailChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />

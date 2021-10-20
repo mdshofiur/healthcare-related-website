@@ -1,4 +1,4 @@
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route,Redirect} from "react-router-dom";
 import About from "./components/About/About";
 import Blog from "./components/Blog/Blog";
 import Error404 from "./components/Error404/Error404";

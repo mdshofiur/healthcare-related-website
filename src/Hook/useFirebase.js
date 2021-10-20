@@ -7,12 +7,11 @@ initializeAuth();
 
 const useFirebase = () => {
 
+
     const [users,setuser] = useState({});
     const [error,seterror] = useState('');
     const[email,setemail] = useState('');
     const[password,setpassword] = useState('');
-
-
     const [isLoading,setLoading] = useState(true);
 
     const auth = getAuth();
@@ -25,38 +24,22 @@ const useFirebase = () => {
  }
 
 
-    const hanglesignup = (e) => {
-        e.preventDefault()
+    const hanglesignup = () => {
       
         if(password.length < 6){
           seterror("Pass Must be 6")
           return;
         }
+          return  createUserWithEmailAndPassword(auth, email, password)
+      }
+
+
+      const hanglelogin = () => {
+        return  signInWithEmailAndPassword(auth, email, password)
+      }
+
+
       
-        const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-          seterror('')
-          setuser(result.user)
-        })
-        .catch(() => {
-         seterror('Email Already Used')
-        });
-        
-      }
-
-      const hanglelogin = (e) => {
-        e.preventDefault()
-      const auth = getAuth();
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-        })
-        .catch((error) => {
-          seterror("Pasword or Email is wrong")
-        });
-      }
-
-
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
@@ -69,6 +52,7 @@ const useFirebase = () => {
           })
 
     }, [auth])
+
 
     const signouts = () => {
       setLoading(true)
@@ -95,7 +79,8 @@ const useFirebase = () => {
         password,
         SignUpwithGoogle,
         setLoading,
-        isLoading
+        isLoading,
+        setuser,
     }
     
 };
